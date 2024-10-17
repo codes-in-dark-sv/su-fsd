@@ -4,12 +4,12 @@ import { FileDetailsCardProps } from '@/interface/components';
 
 const FileDetailsCard: React.FC<FileDetailsCardProps> = ({ date, fileName }) => {
   return (
-    <Card variant="outlined" sx={{ maxWidth: 300, margin: 2 }}>
+    <Card variant="outlined" sx={{ maxWidth: 300, margin: 2, borderRadius: 8 }}>
       <CardContent>
-        <Typography variant="h6" component="div">
+        <Typography variant="body1" component="div">
           {date}
         </Typography>
-        <Typography variant="body1" color="text.secondary">
+        <Typography variant="body2" color="text.secondary">
           {fileName}
         </Typography>
       </CardContent>
