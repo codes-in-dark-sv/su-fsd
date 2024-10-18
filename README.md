@@ -1,4 +1,3 @@
-Here’s a detailed and structured GitHub README file explaining the entire project setup, including file structure, data loading, utilities, reusable components, and everything you've implemented.
 
 ---
 
