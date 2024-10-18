@@ -1,6 +1,16 @@
 import Papa from 'papaparse';
 import { CsvFileDataReadResponse } from '@/interface/utils';
 
+/**
+ * Loads CSV data from a specified file path.
+ *
+ * This asynchronous function fetches the CSV file from the given path, 
+ * parses its content, and returns the data as an array of objects 
+ * conforming to the `CsvFileDataReadResponse` type.
+ *
+ * @param filePath - The path to the CSV file to be loaded.
+ * @returns A promise that resolves to an array of parsed CSV data objects.
+ */
 export const loadCsvData = async (filePath: string): Promise<CsvFileDataReadResponse[]> => {
   try {
     const response = await fetch(filePath);

@@ -5,6 +5,7 @@ import { MenuItem, Select, FormControl, InputLabel } from '@mui/material';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import {SortDropdownProps} from "@interface/components";
+import { SORT_BY } from '@/enums/sort';
 
 const SortDropdown: React.FC<SortDropdownProps> = ({ sortOrder, onSortChange }) => {
   return (
@@ -16,18 +17,18 @@ const SortDropdown: React.FC<SortDropdownProps> = ({ sortOrder, onSortChange }) 
         onChange={onSortChange}
         label="Sort by"
         displayEmpty
-        sx={{ textAlign: 'center' }}
+        sx={{ textAlign: 'center', maxWidth: 200 }}
       >
-        <MenuItem value="dateAsc">
+        <MenuItem value={SORT_BY.DATE_ASC}>
           <ArrowUpwardIcon fontSize="small" /> Date Ascending
         </MenuItem>
-        <MenuItem value="dateDesc">
+        <MenuItem value={SORT_BY.DATE_DESC}>
           <ArrowDownwardIcon fontSize="small" /> Date Descending
         </MenuItem>
-        <MenuItem value="fileNameAsc">
+        <MenuItem value={SORT_BY.FILENAME_ASC}>
           <ArrowUpwardIcon fontSize="small" /> File Name Ascending
         </MenuItem>
-        <MenuItem value="fileNameDesc">
+        <MenuItem value={SORT_BY.FILENAME_DESC}>
           <ArrowDownwardIcon fontSize="small" /> File Name Descending
         </MenuItem>
       </Select>
