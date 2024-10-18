@@ -21,30 +21,41 @@ This project is a CSV file data management system built using **React**, **TypeS
 ## File Structure
 
 Here is an overview of the main project structure and the important files:
-
 ```
-├── components/
-│   ├── cards/
-│   │   └── FileCard.tsx               # Displays individual file details (file name, creation date)
-│   ├── inputs/
-│   │   └── Dropdown.tsx               # Sort dropdown for selecting sorting order
-│   └── views/
-│       └── GridView.tsx               # Displays the file details in a grid layout
-├── enums/
-│   └── sort.ts                        # Enum definitions for sorting (SORT_BY and SortOrder)
-├── interface/
-│   └── utils.ts                       # TypeScript interfaces for file data and props
-├── pages/
-│   ├── index.tsx                      # Main home page with data loading and rendering
-│   ├── error.tsx                      # Error boundary page for handling errors
-│   └── loading.tsx                    # Suspense fallback page for lazy loading
-├── utils/
-│   ├── dataProcessing.ts              # Utility functions for sorting and processing data
-│   └── fileDataExtract.ts             # CSV file data extraction logic using PapaParse
-├── public/
-│   └── data/
-│       └── fileData.csv               # Sample CSV file for loading data
-└── README.md                          # This file
+├───app
+│   │   error.tsx                // Custom error boundary for error handling in the application.
+│   │   globals.css              // Global CSS styles applied across the application.
+│   │   layout.tsx               // Main layout component defining the overall structure of the app.
+│   │   page.tsx                 // Main page component that serves as the entry point for the app.
+│   │
+│   └───fonts
+│           GeistMonoVF.woff     // Font files used for styling the application.
+│           GeistVF.woff
+│
+├───components
+│   ├───cards
+│   │       FileCard.tsx         // Component for displaying individual file details in a card format.
+│   │
+│   ├───inputs
+│   │       Dropdown.tsx         // Dropdown component for sorting options.
+│   │
+│   └───views
+│           GridView.tsx         // Component for rendering a grid layout of items.
+│
+├───enums
+│       sort.ts                  // Enum definitions for sorting options used throughout the app.
+│
+├───interface
+│       components.ts            // TypeScript interfaces for component props.
+│       error.ts                 // TypeScript interfaces for error handling.
+│       utils.ts                 // TypeScript interfaces for utility functions and responses.
+│
+├───styles
+│       theme.ts                 // Theme configuration and styling options for the application.
+│
+└───utils
+        dataProcessing.ts        // Utility functions for sorting and processing data.
+        fileDataExtract.ts       // Utility for loading and parsing CSV file data.
 ```
 
 ### **1. Components**
