@@ -17,7 +17,7 @@ const SortDropdown: React.FC<SortDropdownProps> = ({ sortOrder, onSortChange }) 
         onChange={onSortChange}
         label="Sort by"
         displayEmpty
-        sx={{ textAlign: 'center', maxWidth: 200 }}
+        sx={{ textAlign: 'center', maxWidth: 400 }}
       >
         <MenuItem value={SORT_BY.DATE_ASC}>
           <ArrowUpwardIcon fontSize="small" /> Date Ascending

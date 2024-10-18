@@ -1,14 +1,16 @@
-"use client";
+'use client';
 
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
-import FileDetailsCard from '@/components/cards/FileCard';
-import GridComponent from '@/components/views/GridView';
+import React, { useState, useEffect, useCallback, useMemo, Suspense } from 'react';
 import SortDropdown from '@/components/inputs/Dropdown';
 import { Box, Typography } from '@mui/material';
 import { loadCsvData } from '@/utils/fileDataExtract'; 
 import { CsvFileDataReadResponse } from '@/interface/utils';
 import { SORT_BY, SortOrder } from '@/enums/sort';
-import { sortAlphaNumeric } from '@/utils/dataProcessing'; // Assuming this is the generic utility function
+import { sortAlphaNumeric } from '@/utils/dataProcessing';
+import dynamic from 'next/dynamic'; 
+
+const FileDetailsCard = dynamic(() => import('@/components/cards/FileCard'), { suspense: true });
+const GridComponent = dynamic(() => import('@/components/views/GridView'), { suspense: true });
 
 const Home = () => {
   const [fileData, setFileData] = useState<CsvFileDataReadResponse | []>([]);
@@ -61,10 +63,16 @@ const Home = () => {
       <Typography variant="h4" gutterBottom>
         Files
       </Typography>
-      <SortDropdown sortOrder={sortOrder} onSortChange={handleSortChange} />
-      <Box>
-        <GridComponent items={cards} columns={2} />
+
+      <Box sx={{ display: 'flex', justifyContent: 'left', ml: 45 }}>
+        <SortDropdown sortOrder={sortOrder} onSortChange={handleSortChange} />
       </Box>
+
+      <Suspense fallback={<div>Loading files...</div>}>
+        <Box>
+          <GridComponent items={cards} columns={2} />
+        </Box>
+      </Suspense>
     </Box>
   );
 };
